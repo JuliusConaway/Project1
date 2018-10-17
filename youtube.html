@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
     <title>Music APi</title>
 </head>
 
@@ -15,7 +14,6 @@
     input[type=submit] {
         margin-bottom: 20px;
     }
-
 </style>
 
 <body>
@@ -27,45 +25,51 @@
 
 
     <div id="video"></div>
-  
+
 
 
 </body>
 
 <script>
 
-    var key = "AIzaSyC7PXhSNVVsm-fxia2x6uiluvBZe0p9Y2M";
-    var playlistId = 'PLsWi4tV5wNoRY_yEEF719EM6mUqHQpCQZ';
-    var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
+    $('#submit').click(function (e) {
+        e.preventDefault();
+
+        $('#video').empty();
+
+        var search = $('#artist').val();
+        var key = "AIzaSyC7PXhSNVVsm-fxia2x6uiluvBZe0p9Y2M";
+        var URL = 'https://www.googleapis.com/youtube/v3/search';
 
 
-    var options = {
-        part: 'snippet',
-        key: key,
-        maxResults: 20,
-        playlistId: playlistId
-    }
+        var options = {
+            part: 'snippet',
+            key: key,
+            maxResults: 10,
+            q: search
+        }
 
-    loadVids();
+        loadVids();
 
-    function loadVids() {
-        $.getJSON(URL, options, function (data) {
-            console.log(data)
-            paste(data)
-        });
-    }
+        function loadVids() {
+            $.getJSON(URL, options, function (data) {
+                console.log(data)
+                paste(data)
+            });
+        }
 
-    function paste(data) {
-        $.each(data.items, function(i, item) {
-            var id = item.snippet.resourceId.videoId
-            placevid(id)
-        })
-    }
+        function paste(data) {
+            $.each(data.items, function (i, item) {
+                var id = item.id.videoId
+                placevid(id)
+            })
+        }
 
-    function placevid(id) {
-        $('#video').append(`<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" 
+        function placevid(id) {
+            $('#video').append(`<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" 
         allow="autoplay; encrypted-media" allowfullscreen></iframe>`)
-    }
+        }
+    })
 
 </script>
 
