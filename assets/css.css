@@ -1,0 +1,13 @@
+body {
+    background-image: url("../assets/images/headerbg.jpg");
+    background-attachment: fixed;
+}
+footer {
+    margin-top: 25%;
+    margin-inline-start: 35%;
+    margin-block-end: 45%;
+    margin-right: 5%;
+    color: black;
+    font-size: 30px;
+    font-weight: 500px;
+}
