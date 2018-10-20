@@ -15,7 +15,7 @@ allow="autoplay; encrypted-media" allowfullscreen></iframe>`)
     }
 
     function searchYoutube(response) {
-        var search = $('#artist').val() + " movie trailer " + response.Director
+        var search = $('#artist').val() + " movie trailer " + response.Director + " " + response.Year
 
         var URL = 'https://www.googleapis.com/youtube/v3/search';
 
@@ -58,7 +58,7 @@ allow="autoplay; encrypted-media" allowfullscreen></iframe>`)
     $('#submit').click(function (e) {
 
         e.preventDefault();
-        $('#video').empty();
+        $('#youtube').html("");
         getMovieInfo()
     }
     )
