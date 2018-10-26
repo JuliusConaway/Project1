@@ -1,20 +1,11 @@
 body {
+background-image: url("../assets/images/test2.png");
+z-index: -15;
+background-repeat: no-repeat;
+background-size: cover;
 
 }
-footer {
-    margin-top: 25%;
-    margin-inline-start: 35%;
-    margin-block-end: 45%;
-    margin-right: 5%;
-    color: black;
-    font-size: 30px;
-    font-weight: 500px;
-}
-{
-    box-sizing: border-box;
-  }
-  
-  
+
   form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
@@ -45,3 +36,19 @@ footer {
     clear: both;
     display: table;
   }
+  .header {
+    text-align: center;
+  }
+  #footer {
+    color: antiquewhite;
+    text-align: center;
+  }
+  #details {
+    color: white;;
+    font-size: 20px;
+  }
+ 
+  #plot {
+    background-color: rgba(0, 0, 0, .7) !important;
+  }
+  
